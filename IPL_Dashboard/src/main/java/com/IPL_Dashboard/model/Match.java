@@ -1,7 +1,12 @@
 package com.IPL_Dashboard.model;
 import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Match {	
-	
+	@Id
 	private long id	;
 	private String city;
 	private LocalDate date;
@@ -15,6 +20,9 @@ public class Match {
 	private String result;
 	private String result_margin;
 	private String umpire1	;
+	private String umpire2;
+
+	
 	public long getId() {
 		return id;
 	}
@@ -99,6 +107,5 @@ public class Match {
 	public void setUmpire2(String umpire2) {
 		this.umpire2 = umpire2;
 	}
-	private String umpire2;
-
+	
 }
