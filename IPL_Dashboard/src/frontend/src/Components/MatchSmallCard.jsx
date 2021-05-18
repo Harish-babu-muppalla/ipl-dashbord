@@ -1,10 +1,11 @@
 import {React} from 'react';
 
 
-export const MatchSmaillCard = ()  => {
+export const MatchSmallCard = ({match})  => {
   return (
     <div className="TeamPage">
-     <h3> matchs</h3>
+     <p>{match.team1} vs {match.team2}</p>
+     
     </div>
   );
 }
