@@ -1,12 +1,17 @@
 package com.IPL_Dashboard.controller;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.IPL_Dashboard.Repository.MatchRepository;
 import com.IPL_Dashboard.Repository.TeamRepository;
+import com.IPL_Dashboard.model.Match;
 import com.IPL_Dashboard.model.Team;
 
 @RestController
@@ -32,6 +37,11 @@ public class TeamController {
 		return team;
 	}
 	
-	
+	@GetMapping("/team/{teamName}/matches")
+	public List<Match> geatMatchesForYear(@PathVariable String teamName, @RequestParam int year){
+		LocalDate startDate =LocalDate.of(year,1,1);
+		LocalDate endDate =LocalDate.of(year+1,1,1);
+		return this.matchRepo.getMatchesByTeamBetweenDate(teamName,startDate,endDate);	
+	}
 
 }
