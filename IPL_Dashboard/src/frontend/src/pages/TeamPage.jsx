@@ -1,5 +1,5 @@
 import {React, useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { MatchDetailCard } from '../Components/MatchDetailCard';
 import { MatchSmallCard } from '../Components/MatchSmallCard';
 import { PieChart } from 'react-minimal-pie-chart';
@@ -35,7 +35,7 @@ export const TeamPage = ()  => {
     <div className="winLoss">Winns / Losses
     <PieChart
   data={[
-    { title: 'losses', lable:'losses', value: team.totalMatches - team.totalWins, color: '#E38627' },
+    { title: 'losses', lable:'losses', value: team.totalMatches - team.totalWins, color: 'lightsalmon' },
     { title: 'wins', lable: 'wins', value: team.totalWins, color: 'lightgreen' },
   ]}
 />
@@ -45,8 +45,10 @@ export const TeamPage = ()  => {
      <MatchDetailCard teamName ={team.teamName} match={team.matches[0]}/>
      </div>
       {team.matches.slice(1).map(match => <MatchSmallCard teamName ={team.teamName} match ={match}/>)}
-     <div className="more"><a href="#">More ></a></div>
+     <div className="more">
+     <Link to= {`/teams/${teamName}/matches/${process.env.REACT_APP_END}`} >More ></Link>
 
+    </div>
     </div>
   );
 }

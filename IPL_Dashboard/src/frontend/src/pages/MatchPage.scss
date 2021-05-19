@@ -1,0 +1,10 @@
+.matchPage{
+    display:grid;
+    grid-template-columns: 1fr 5fr;
+    grid-column-gap: 20px;
+
+    .years{
+        justify-self: end;
+        padding: 20px;
+    }
+}

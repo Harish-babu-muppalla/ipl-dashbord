@@ -1,10 +1,13 @@
 import {React, useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { MatchDetailCard } from '../Components/MatchDetailCard';
-import { MatchSmallCard } from '../Components/MatchSmallCard';
 
+import { MatchDetailCard } from '../Components/MatchDetailCard';
+import { YearSelectorPage } from '../Components/yearSelectorPage';
+
+import './MatchPage.scss'
 
 export const MatchPage = ()  => {
+
     const [matches,setMatches] =useState([]);
     const { teamName,year } = useParams();
     useEffect(
@@ -21,10 +24,17 @@ export const MatchPage = ()  => {
       );
  
   return (
-    <div className="TeamPage">
-     <h1>match page</h1>
-     
-    {matches.map(match => <MatchDetailCard teamName ={teamName} match ={match}/>)}
+    <div className="matchPage">
+     <div className="years">
+       <h4>Select Year</h4>
+       <YearSelectorPage teamName ={teamName}/>
+     </div>
+     <div> 
+     <h1 style={{marginBottom: "20px"}}>{teamName} Matches in {year}</h1>
+    
+     {matches.map(match => <MatchDetailCard teamName ={teamName} match ={match}/>)}
+     </div>
+    
      
 
     </div>
