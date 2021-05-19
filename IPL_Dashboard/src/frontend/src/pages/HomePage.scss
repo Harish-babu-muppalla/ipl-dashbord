@@ -1,0 +1,13 @@
+.HomePage{
+    .teams{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap:10px ;
+        grid-row-gap: 10px;
+       
+    }
+    .AppName{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
